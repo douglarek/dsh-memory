@@ -1,0 +1,19 @@
+# dsh-memory bundle: insert the Host plugin row.
+#
+# The row uses the package name, so the Loader resolves this bundle from the
+# profile that installs it. Every option below has a code default; the listed
+# values are the defaults and exist as a starting point for overrides.
+- insert:
+    - id: dsh-memory
+      name: 'dsh-memory'
+      config:
+        enabled: true
+        # Memory files live under $DSH_HOME/memory unless overridden here.
+        memoryDir: ''
+        scopeGlobal: true
+        scopeWorkspace: true
+        toolsEnabled: true
+        promptEnabled: true
+        commandsEnabled: true
+        captureEnabled: true
+        injectEnabled: true
