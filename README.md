@@ -13,6 +13,40 @@ contains no UI panel; memory is browsed through the tools and `/memory`.
 
 ## Install
 
+### For agents
+
+This is a DSH Host plugin bundle; it is not installed with `npm install`.
+Choose the first usable path:
+
+1. `plugin_manager` tool available:
+
+```text
+plugin_manager { action: "install_bundle", target: "github:douglarek/dsh-memory" }
+```
+
+2. `DSH_PROFILE` is `desktop`: install from the Plugin Manager in the running
+   DSH app.
+
+3. Another profile:
+
+```bash
+dsh plugin --profile "$DSH_PROFILE" add github:douglarek/dsh-memory
+```
+
+If `DSH_PROFILE` is unset, ask the user for the profile name.
+
+4. Local checkout:
+
+```text
+plugin_manager { action: "install_bundle", target: "/absolute/path/to/dsh-memory" }
+```
+
+Do not edit the profile's `package.json` or `cordis.patch.yml` by hand, and do
+not run pnpm in the profile directory.
+
+Verify with `memory_list`. If the memory tools are unavailable, start a new
+session or restart DSH.
+
 ### DSH Plugin Manager
 
 ```text
